@@ -29,7 +29,11 @@ Copy the requirements file to CHTC
 Create a Docker file that looks like this:
 
 ```
-Add this
+FROM nvidia/cuda:11.4.2-cudnn8-runtime-ubuntu20.04
+ADD requirements.txt /
+RUN apt-get update && apt-get install python3.7
+RUN apt-get -y install python3-pip
+RUN pip install -r /requirements.txt
 ```
 
 Create a submit file
